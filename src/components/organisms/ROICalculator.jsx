@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
 
@@ -39,7 +39,7 @@ const ROICalculator = () => {
           {value}{suffix}
         </span>
       </div>
-      <div className="relative">
+<div className="relative">
         <input
           type="range"
           min={min}
@@ -47,32 +47,36 @@ const ROICalculator = () => {
           step={step}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="w-full h-2 bg-neutral-200 rounded-lg appearance-none cursor-pointer slider"
+          className="slider w-full h-2 bg-neutral-200 rounded-lg appearance-none cursor-pointer"
         />
-        <style jsx>{`
-          .slider::-webkit-slider-thumb {
-            appearance: none;
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2C5F8D, #6B9BD1);
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-          }
-          .slider::-moz-range-thumb {
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2C5F8D, #6B9BD1);
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-          }
-        `}</style>
+        
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .slider::-webkit-slider-thumb {
+              appearance: none;
+              height: 20px;
+              width: 20px;
+              border-radius: 50%;
+              background: linear-gradient(135deg, #2C5F8D, #6B9BD1);
+              cursor: pointer;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+            .slider::-moz-range-thumb {
+              height: 20px;
+              width: 20px;
+              border-radius: 50%;
+              background: linear-gradient(135deg, #2C5F8D, #6B9BD1);
+              cursor: pointer;
+              border: none;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+          `
+        }} />
       </div>
     </div>
   );
 
+  const MetricCard = ({ icon, title, value, color = "text-primary" }) => (
   const MetricCard = ({ icon, title, value, color = "text-primary" }) => (
     <motion.div 
       className="bg-white p-6 rounded-xl shadow-lg border border-neutral-200 hover:shadow-xl transition-shadow duration-300"
