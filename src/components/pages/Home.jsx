@@ -5,6 +5,7 @@ import HeroSection from "@/components/organisms/HeroSection";
 import ServicesSection from "@/components/organisms/ServicesSection";
 import IndustriesSection from "@/components/organisms/IndustriesSection";
 import CaseStudiesSection from "@/components/organisms/CaseStudiesSection";
+import ROICalculator from "@/components/organisms/ROICalculator";
 import CTASection from "@/components/organisms/CTASection";
 import servicesService from "@/services/api/servicesService";
 import industriesService from "@/services/api/industriesService";
@@ -57,9 +58,10 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <ServicesSection services={services} />
+<ServicesSection services={services} />
       <IndustriesSection industries={industries} />
       <CaseStudiesSection caseStudies={caseStudies} />
+      <ROICalculator />
       <CTASection />
     </div>
   );
