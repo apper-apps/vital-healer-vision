@@ -75,9 +75,7 @@ const ROICalculator = () => {
       </div>
     </div>
   );
-
-  const MetricCard = ({ icon, title, value, color = "text-primary" }) => (
-  const MetricCard = ({ icon, title, value, color = "text-primary" }) => (
+const MetricCard = ({ icon, title, value, color = "text-primary" }) => (
     <motion.div 
       className="bg-white p-6 rounded-xl shadow-lg border border-neutral-200 hover:shadow-xl transition-shadow duration-300"
       whileHover={{ y: -2 }}
