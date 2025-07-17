@@ -1,0 +1,80 @@
+[
+  {
+    "Id": 1,
+    "practiceType": "Functional Medicine",
+    "practiceName": "Wellness Solutions MD",
+    "metrics": {
+      "patientInquiries": "+45%",
+      "appointmentBookings": "+32%",
+      "callReduction": "38%",
+      "roiPayback": "42 days"
+    },
+    "testimonial": "Our AI assistant has transformed how we engage with patients. We're spending less time on repetitive questions and more time on actual patient care. The automated intake process alone has saved us 2 hours per day.",
+    "imageUrl": "/api/placeholder/400/300"
+  },
+  {
+    "Id": 2,
+    "practiceType": "Naturopathic Medicine",
+    "practiceName": "Natural Health Center",
+    "metrics": {
+      "leadGeneration": "+52%",
+      "patientRetention": "+28%",
+      "consultationRequests": "+41%",
+      "digitalEngagement": "+67%"
+    },
+    "testimonial": "The conversational AI helps patients understand our natural approach before they even walk in the door. This has dramatically improved the quality of our consultations and patient satisfaction.",
+    "imageUrl": "/api/placeholder/400/300"
+  },
+  {
+    "Id": 3,
+    "practiceType": "Chiropractic",
+    "practiceName": "Spine & Wellness Clinic",
+    "metrics": {
+      "noShowReduction": "43%",
+      "appointmentBookings": "+29%",
+      "patientEducation": "+55%",
+      "staffEfficiency": "+34%"
+    },
+    "testimonial": "The automated appointment reminders and rescheduling feature has virtually eliminated our no-show problem. Our front desk team can now focus on patient care instead of constant phone calls.",
+    "imageUrl": "/api/placeholder/400/300"
+  },
+  {
+    "Id": 4,
+    "practiceType": "Physical Therapy",
+    "practiceName": "Recovery Plus PT",
+    "metrics": {
+      "insuranceProcessing": "+48%",
+      "patientCompliance": "+36%",
+      "referrals": "+23%",
+      "schedulingEfficiency": "+41%"
+    },
+    "testimonial": "The AI system handles insurance questions and helps patients understand their benefits before they arrive. This has streamlined our intake process and improved patient satisfaction significantly.",
+    "imageUrl": "/api/placeholder/400/300"
+  },
+  {
+    "Id": 5,
+    "practiceType": "Yoga Studio",
+    "practiceName": "Mindful Movement Studio",
+    "metrics": {
+      "classBookings": "+38%",
+      "memberRetention": "+31%",
+      "newStudentConversion": "+44%",
+      "revenueGrowth": "+26%"
+    },
+    "testimonial": "Our students love being able to book classes and get personalized recommendations 24/7. The AI even suggests modifications based on their experience level, which has really enhanced the studio experience.",
+    "imageUrl": "/api/placeholder/400/300"
+  },
+  {
+    "Id": 6,
+    "practiceType": "IV Therapy Clinic",
+    "practiceName": "Revitalize IV Wellness",
+    "metrics": {
+      "treatmentBookings": "+47%",
+      "patientEducation": "+62%",
+      "conversionRate": "+33%",
+      "customerSatisfaction": "+39%"
+    },
+    "testimonial": "Patients often have questions about IV therapy safety and benefits. The AI assistant provides evidence-based information 24/7, which has increased patient confidence and booking rates.",
+    "imageUrl": "/api/placeholder/400/300"
+  }
+]
