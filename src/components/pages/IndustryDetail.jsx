@@ -69,10 +69,10 @@ const IndustryDetail = () => {
           >
             <div className="w-20 h-20 bg-gradient-to-br from-accent/10 to-primary/10 rounded-xl flex items-center justify-center mx-auto mb-6">
               <ApperIcon name="Heart" className="w-10 h-10 text-accent" />
-            </div>
+</div>
             
             <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 mb-6">
-              AI Solutions for {industry.name}
+              AI Digital Marketing for {industry.name}
             </h1>
             
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto mb-8">
@@ -135,9 +135,9 @@ const IndustryDetail = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-            >
+>
               <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-8">
-                Our AI Solutions
+                Our AI Digital Marketing
               </h2>
               
               <div className="space-y-6">
@@ -177,9 +177,9 @@ const IndustryDetail = () => {
             >
               <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
                 Success Story
-              </h2>
+</h2>
               <p className="text-xl text-neutral-600">
-                See how {relatedCaseStudy.practiceName} transformed their practice with our AI solutions
+                See how {relatedCaseStudy.practiceName} transformed their practice with our AI digital marketing
               </p>
             </motion.div>
 
