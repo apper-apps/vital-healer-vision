@@ -22,7 +22,7 @@ function Login() {
           </div>
           <div className="flex flex-col gap-1 items-center justify-center">
             <div className="text-center text-lg xl:text-xl font-bold">
-              Sign in to StrictlyHeal
+Sign in to StrictlyHeal Pro
             </div>
             <div className="text-center text-sm text-neutral-500">
               Welcome back, please sign in to continue
