@@ -41,7 +41,7 @@ const Home = () => {
 
   useEffect(() => {
     loadData();
-    console.info('apper_info : test');
+    console.info('apper_info: test');
   }, []);
 
   if (loading) {
