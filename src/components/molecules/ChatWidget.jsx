@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
+import { toast } from 'react-toastify';
 
 const ChatWidget = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
       type: "bot",
-      message: "Hi! I'm your AI assistant. I can help you learn about our conversational AI solutions for wellness practices. What would you like to know?"
+      message: "Hi! I'm your AI health assistant. I can provide personalized health suggestions based on your questions. What would you like to know about your health and wellness?"
     }
   ]);
   const [input, setInput] = useState("");
-
+  const [isLoading, setIsLoading] = useState(false);
   const sampleResponses = {
     "pricing": "Our pricing starts at $299/month for basic AI assistant features. This includes 24/7 patient support, appointment scheduling, and basic FAQ handling. Would you like to see a detailed pricing breakdown?",
     "features": "Our AI assistants can handle appointment scheduling, answer common patient questions, collect intake forms, send appointment reminders, and even help with basic health education. Which feature interests you most?",
@@ -21,33 +22,54 @@ const ChatWidget = () => {
     "default": "That's a great question! Our AI solutions are specifically designed for wellness practices. Would you like to schedule a 15-minute demo to see how we can help grow your practice?"
   };
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+const handleSend = async () => {
+    if (!input.trim() || isLoading) return;
 
     const userMessage = { type: "user", message: input };
     setMessages(prev => [...prev, userMessage]);
-
-    // Simple keyword matching for demo purposes
-    const lowercaseInput = input.toLowerCase();
-    let response = sampleResponses.default;
-
-    if (lowercaseInput.includes("price") || lowercaseInput.includes("cost")) {
-      response = sampleResponses.pricing;
-    } else if (lowercaseInput.includes("feature") || lowercaseInput.includes("what can")) {
-      response = sampleResponses.features;
-    } else if (lowercaseInput.includes("demo") || lowercaseInput.includes("show me")) {
-      response = sampleResponses.demo;
-    } else if (lowercaseInput.includes("roi") || lowercaseInput.includes("return")) {
-      response = sampleResponses.ROI;
-    } else if (lowercaseInput.includes("integrate") || lowercaseInput.includes("connect")) {
-      response = sampleResponses.integration;
-    }
-
-    setTimeout(() => {
-      setMessages(prev => [...prev, { type: "bot", message: response }]);
-    }, 1000);
-
     setInput("");
+    setIsLoading(true);
+
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      const result = await apperClient.functions.invoke(
+        import.meta.env.VITE_GET_HEALTH_SUGGESTIONS,
+        {
+          body: JSON.stringify({ message: input }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+
+      if (!result.success) {
+        console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_GET_HEALTH_SUGGESTIONS}. The response body is: ${JSON.stringify(result)}.`);
+        toast.error(result.message || 'Failed to get health suggestion');
+        setMessages(prev => [...prev, { 
+          type: "bot", 
+          message: "I'm sorry, I'm having trouble generating a response right now. Please try again." 
+        }]);
+      } else {
+        setMessages(prev => [...prev, { 
+          type: "bot", 
+          message: result.suggestion 
+        }]);
+      }
+    } catch (error) {
+      console.info(`apper_info: Got this error in this function: ${import.meta.env.VITE_GET_HEALTH_SUGGESTIONS}. The error is: ${error.message}`);
+      toast.error('Failed to connect to health assistant');
+      setMessages(prev => [...prev, { 
+        type: "bot", 
+        message: "I'm sorry, I'm having trouble connecting right now. Please try again." 
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
